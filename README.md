@@ -298,7 +298,7 @@ relação não-linear e negativa de ordem 𝜏=−0,7692.
 
 *Observação: Pode-se fazer uma comparação entre coeficiente de correlação de Spearman e o coeficiente de correlação por postos de Kendall. Os valores numéricos não são iguais, quando calculados para os mesmos pares de postos, e não são comparáveis numericamente. Contudo, pelo fato de utilizarem a mesma quantidade de informação contida nos dados, ambos têm o mesmo poder de detectar a existência de associação na população, e rejeitarão a hipótese nula para um mesmo nível de significância.*
 
-### Bibliographical References:
+### Repository Bibliographic References:
 - Introduction to Time Series, by Gustavo Rocha Silva
 - Practical Time Series Analysis: Prediction with Statistics and Machine Learning, by Aileen Nielsen
 - Elementary Statistics: Picturing the World Hardcover, by Ron Larson (Auteur), Betsy Farber
