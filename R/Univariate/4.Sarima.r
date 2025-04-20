@@ -6,7 +6,8 @@ packages <- c("magrittr","httpgd","mFilter","BCDating","rio","timetk","pdftools"
 "tidytext","dplyr","tidyverse","tidyr","ggplot2","readr","readxl","forecast","zoo","lubridate",
 "ipeadatar","sidrar","GetBCBData","PNADcIBGE","survey","dygraphs","tseries","quantmod",
 "Quandl","discreteRV","aTSA","fGarch","fUnitRoots","vars","MTS","seasonal","stats","nortest",
-"scales","urca","dlm","seasonalview","stringr","fma","languageserver","PerformanceAnalytics","getSymbols")
+"scales","urca","dlm","seasonalview","stringr","fma","languageserver","PerformanceAnalytics",
+"getSymbols","jsonlite","purrr","curl)")
 
 packages_install <- packages [!packages %in% installed.packages()[,"Package"]]
 if(length(packages_install) > 0)
@@ -14,8 +15,6 @@ if(length(packages_install) > 0)
 
 # Load Packages
 lapply(pacotes, library, character.only = TRUE)
-
-# if some packages weren't installed, run the commands in the repository -> https://github.com/HenrySchall/Data_Science/blob/main/R/Install_Packages.txt
 
 ####################################
 ### Modelo SARIMA (p,d,q)(P,D,Q) ###
