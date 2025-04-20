@@ -1,39 +1,19 @@
-library(httpgd)
-library(languageserver)
-library(purrr)
-library(magrittr)
-library(rio)      
-library(timetk)   
-library(dplyr) 
-library(tidyverse)   
-library(tidyr)    
-library(ggplot2) 
-library(readr)
-library(readxl)
-library(forecast)
-library(zoo)
-library(lubridate)
-library(quantmod)
-library(dygraphs)
-library(tseries)
-library(Quandl)
-library(discreteRV)
-library(aTSA)
-library(fGarch)
-library(fUnitRoots)
-library(vars)
-library(MTS)
-library(seasonal)
-library(stats)
-library(nortest)
-library(scales)
-library(urca)
-library(dlm)
-library(seasonalview)
-library(stringr)
-library(fma)
-library(nixtla)
-library(PerformanceAnalytics)
+#################################
+### Install and Load Packages ###
+#################################
+
+packages <- c("magrittr","httpgd","mFilter","BCDating","rio","timetk","pdftools","textdata","tm",
+"tidytext","dplyr","tidyverse","tidyr","ggplot2","readr","readxl","forecast","zoo","lubridate",
+"ipeadatar","sidrar","GetBCBData","PNADcIBGE","survey","dygraphs","tseries","quantmod",
+"Quandl","discreteRV","aTSA","fGarch","fUnitRoots","vars","MTS","seasonal","stats","nortest",
+"scales","urca","dlm","seasonalview","stringr","fma","languageserver","PerformanceAnalytics","getSymbols")
+
+packages_install <- packages [!packages %in% installed.packages()[,"Package"]]
+if(length(packages_install) > 0)
+{install.packages(packages_install)} else {message("Todos os pacotes já estão instalados.")}
+
+# Load Packages
+lapply(pacotes, library, character.only = TRUE)
 
 # if some packages weren't installed, run the commands in the repository -> https://github.com/HenrySchall/Data_Science/blob/main/R/Install_Packages.txt
 

@@ -1,18 +1,19 @@
-
 #################################
 ### Install and Load Packages ###
 #################################
 
-paclages <- c("magrittr","httpgd","mFilter","BCDating","rio","timetk","pdftools","textdata","tm",
+packages <- c("magrittr","httpgd","mFilter","BCDating","rio","timetk","pdftools","textdata","tm",
 "tidytext","dplyr","tidyverse","tidyr","ggplot2","readr","readxl","forecast","zoo","lubridate",
-"ipeadatar","sidrar","GetBCBData","PNADcIBGE","survey","dygraphs","nixtla","tseries","quantmod",
+"ipeadatar","sidrar","GetBCBData","PNADcIBGE","survey","dygraphs","tseries","quantmod",
 "Quandl","discreteRV","aTSA","fGarch","fUnitRoots","vars","MTS","seasonal","stats","nortest",
-"scales","urca","dlm","seasonalview","stringr","fma","languageserver","PerformanceAnalytics")
+"scales","urca","dlm","seasonalview","stringr","fma","languageserver","PerformanceAnalytics","getSymbols")
 
-for (p in pacotes) {if (!require(p, character.only = TRUE)) 
-    {install.packages(p, dependencies = TRUE)
-    library(p, character.only = TRUE)} 
-    else {library(p, character.only = TRUE)}}
+packages_install <- packages [!packages %in% installed.packages()[,"Package"]]
+if(length(packages_install) > 0)
+{install.packages(packages_install)} else {message("Todos os pacotes já estão instalados.")}
+
+# Load Packages
+lapply(pacotes, library, character.only = TRUE)
 
 ######################
 ### Série Temporal ###
