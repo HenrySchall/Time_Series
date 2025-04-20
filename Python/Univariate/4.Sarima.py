@@ -17,6 +17,9 @@ from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from statsmodels.tsa.seasonal import seasonal_decompose as decompose
 import statsmodels.api as sm
 
+install.packages("languageserver")
+install.packages("httpgd")
+
 ######################
 ### Série Temporal ###
 ######################

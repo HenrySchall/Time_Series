@@ -1,41 +1,19 @@
-library(httpgd)
-library(languageserver)
-library(purrr)
-library(magrittr)
-library(rio)      
-library(timetk)   
-library(dplyr) 
-library(tidyverse)   
-library(tidyr)    
-library(ggplot2) 
-library(readr)
-library(readxl)
-library(forecast)
-library(zoo)
-library(lubridate)
-library(quantmod)
-library(dygraphs)
-library(tseries)
-library(Quandl)
-library(discreteRV)
-library(aTSA)
-library(fGarch)
-library(fUnitRoots)
-library(vars)
-library(MTS)
-library(seasonal)
-library(stats)
-library(nortest)
-library(scales)
-library(urca)
-library(dlm)
-library(seasonalview)
-library(stringr)
-library(fma)
-library(PerformanceAnalytics)
 
-# if some packages weren't installed, run the commands in the repository -> https://github.com/HenrySchall/Data_Science/blob/main/R/Install_Packages.txt
+#################################
+### Install and Load Packages ###
+#################################
 
+paclages <- c("magrittr","httpgd","mFilter","BCDating","rio","timetk","pdftools","textdata","tm",
+"tidytext","dplyr","tidyverse","tidyr","ggplot2","readr","readxl","forecast","zoo","lubridate",
+"ipeadatar","sidrar","GetBCBData","PNADcIBGE","survey","dygraphs","nixtla","tseries","quantmod",
+"Quandl","discreteRV","aTSA","fGarch","fUnitRoots","vars","MTS","seasonal","stats","nortest",
+"scales","urca","dlm","seasonalview","stringr","fma","languageserver","PerformanceAnalytics")
+
+for (p in pacotes) {if (!require(p, character.only = TRUE)) 
+    {install.packages(p, dependencies = TRUE)
+    library(p, character.only = TRUE)} 
+    else {library(p, character.only = TRUE)}}
+    
 #########################
 ### Modelo AR (p,0,0) ###
 #########################

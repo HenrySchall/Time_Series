@@ -32,6 +32,7 @@ library(dlm)
 library(seasonalview)
 library(stringr)
 library(fma)
+library(nixtla)
 library(PerformanceAnalytics)
 
 # if some packages weren't installed, run the commands in the repository -> https://github.com/HenrySchall/Data_Science/blob/main/R/Install_Packages.txt
