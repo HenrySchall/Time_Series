@@ -304,6 +304,24 @@ relação não-linear e negativa de ordem 𝜏=−0,7692.
 - Elementary Statistics: Picturing the World Hardcover, by Ron Larson (Auteur), Betsy Farber
 - Time Series Econometrics, by Rodrigo de Losso da Silveira Bueno
 
+- Método Holt Winters
+https://www.youtube.com/watch?v=JqbaRku48YY
+
+Séries Temporais usando Python
+https://analisemacro.com.br/curso/analise-de-series-temporais-usando-python/
+
+Modelos Financeiros usando Python
+https://analisemacro.com.br/curso/modelos-financeiros-usando-python/
+
+• TimeGPT
+https://docs.nixtla.io/docs/getting-started-about_timegpt
+
+• SkForecast
+https://skforecast.org/0.15.1/index.html
+
+• PyGwalk
+https://docs.kanaries.net/pt/pygwalker/index
+
 
 
 
