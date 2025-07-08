@@ -1,6 +1,45 @@
-## Time Series
+<div id="top">
 
-![IMG_2666](https://github.com/user-attachments/assets/1eac8d6f-b710-4c2e-8e98-7dea5ca932fd)
+<!-- HEADER STYLE: CLASSIC -->
+<div align="center">
+
+# Time Series
+
+![Img](https://github.com/user-attachments/assets/1eac8d6f-b710-4c2e-8e98-7dea5ca932fd)
+
+<!-- BADGES -->
+<img src="https://img.shields.io/github/license/HenrySchall/Artificial_Intelligence?style=flat&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
+<img src="https://img.shields.io/github/last-commit/HenrySchall/Artificial_Intelligence?style=flat&logo=git&logoColor=white&color=0080ff" alt="last-commit">
+<img src="https://img.shields.io/github/languages/top/HenrySchall/Artificial_Intelligence?style=flat&color=0080ff" alt="repo-top-language">
+<img src="https://img.shields.io/github/languages/count/HenrySchall/Artificial_Intelligence?style=flat&color=0080ff" alt="repo-language-count">
+
+<em>Built with the tools and technologies:</em>
+
+<img src="https://img.shields.io/badge/Markdown-000000.svg?style=flat&logo=Markdown&logoColor=white" alt="Markdown">
+<img src="https://img.shields.io/badge/Python-3776AB.svg?style=flat&logo=Python&logoColor=white" alt="Python">
+
+</div>
+<br>
+
+---
+## Table of Contents
+
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [Testing](#testing)
+- [Features](#features)
+- [Project Structure](#project-structure)
+    - [Project Index](#project-index)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgment](#acknowledgment)
+
+---
+## Overview
 
 > A Time Series is a set of observations ordered in time or a particular slice of an unknown stochastic process. Mathematically: Y = Tdt + Szt + et.
 
@@ -298,29 +337,11 @@ relação não-linear e negativa de ordem 𝜏=−0,7692.
 
 *Observação: Pode-se fazer uma comparação entre coeficiente de correlação de Spearman e o coeficiente de correlação por postos de Kendall. Os valores numéricos não são iguais, quando calculados para os mesmos pares de postos, e não são comparáveis numericamente. Contudo, pelo fato de utilizarem a mesma quantidade de informação contida nos dados, ambos têm o mesmo poder de detectar a existência de associação na população, e rejeitarão a hipótese nula para um mesmo nível de significância.*
 
-### Repository Bibliographic References:
+### Bibliographic References:
 - Introduction to Time Series, by Gustavo Rocha Silva
 - Practical Time Series Analysis: Prediction with Statistics and Machine Learning, by Aileen Nielsen
 - Elementary Statistics: Picturing the World Hardcover, by Ron Larson (Auteur), Betsy Farber
 - Time Series Econometrics, by Rodrigo de Losso da Silveira Bueno
-
-- Método Holt Winters
-https://www.youtube.com/watch?v=JqbaRku48YY
-
-Séries Temporais usando Python
-https://analisemacro.com.br/curso/analise-de-series-temporais-usando-python/
-
-Modelos Financeiros usando Python
-https://analisemacro.com.br/curso/modelos-financeiros-usando-python/
-
-• TimeGPT
-https://docs.nixtla.io/docs/getting-started-about_timegpt
-
-• SkForecast
-https://skforecast.org/0.15.1/index.html
-
-• PyGwalk
-https://docs.kanaries.net/pt/pygwalker/index
 
 
 
