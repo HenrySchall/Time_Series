@@ -346,4 +346,66 @@ relação não-linear e negativa de ordem 𝜏=−0,7692.
 
 
 
+ Economia e Finanças
 
+    Previsão de inflação, PIB, desemprego
+
+    Análise de mercado financeiro: preços de ações, taxas de juros, câmbio
+
+    Gestão de portfólio com modelos de volatilidade (e.g., GARCH)
+
+    Modelagem macroeconômica: VAR, SVAR, BVAR
+
+🏢 Negócios e Marketing
+
+    Previsão de demanda e vendas
+
+    Gestão de estoque (evitar excesso ou falta de produto)
+
+    Modelos de pricing dinâmico
+
+    Análise de churn (saída de clientes) com séries de comportamento
+
+    Campanhas sazonais: identificar ciclos de compra
+
+🛒 E-commerce e Varejo
+
+    Previsão de tráfego no site
+
+    Recomendações com base no histórico de comportamento
+
+    Análise de campanhas promocionais temporais
+
+    Análise de séries clickstream (navegação dos usuários)
+
+🏭 Indústria e Manufatura
+
+    Manutenção preditiva (machine learning com séries de sensores)
+
+    Controle de qualidade no tempo
+
+    Otimização da produção com base em previsões de demanda
+
+🚛 Logística e Cadeia de Suprimentos
+
+    Previsão de entrega e prazos
+
+    Roteirização dinâmica com dados históricos de tráfego
+
+    Gestão de estoque baseada em séries temporais de consumo
+
+🏥 Saúde
+
+    Monitoramento de sinais vitais (e.g., batimentos, pressão)
+
+    Previsão de surtos epidemiológicos (como COVID-19, dengue)
+
+    Modelagem de ocupação hospitalar
+
+🌦️ Clima, Energia e Sustentabilidade
+
+    Previsão do tempo e eventos extremos
+
+    Previsão de carga elétrica (modelos usados por concessionárias)
+
+    Modelagem de geração solar e eólica
