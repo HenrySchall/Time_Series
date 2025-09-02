@@ -1,7 +1,9 @@
+%%python
+
 ########################
 ### Install Packages ###
 ########################
-
+ 
 import subprocess
 import sys
 
@@ -54,7 +56,7 @@ from statsmodels.tsa.seasonal import seasonal_decompose as decompose
 ######################
 
 # Configuração do padrão de medidas do plot dos gráficos
-rcParams['figure.figsize'] = 15, 6
+rcParams['figure.figsize'] = 15, 6 
 
 # Criando dados aleatórios (Série Anual)
 np.random.seed(10) # definir ponto inicial para gerar mesmos valores aleatórios
@@ -74,7 +76,6 @@ dados
 # data = pd.DataFrame(data)
 # data.columns = ['data']
 # data
-
 # Combinando valores
 # serie2 = pd.concat([data, dados], axis=1)
 # serie2
@@ -292,3 +293,5 @@ plt.show()
 ##################
 ### Suavização ###
 ##################
+
+# %%
