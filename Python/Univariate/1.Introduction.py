@@ -5,6 +5,7 @@ import statsmodels.api as sm
 import scipy.stats as stats
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from matplotlib.pylab import rcParams
+from random import sample, random
 from statsmodels.tsa.seasonal import seasonal_decompose as decompose
 
 # Configuração do padrão de medidas do plot dos gráficos para ficar visivelmente mais agradáveis
@@ -43,7 +44,6 @@ df_anual.columns = ['Valores']
 df_anual
 
 df_anual.describe()
-
 # count = Número de observações no conjunto de dados
 # mean = Número de observações no conjunto de dados
 # std = O desvio padrão. Mede a dispersão dos dados em relação à média. Quanto maior, mais espalhados os valores estão
@@ -53,6 +53,7 @@ df_anual.describe()
 # 75% = O terceiro quartil. 75% dos dados estão abaixo deste valor
 # max = O maior valor do conjunto de dados
 
+# Índice temporal
 index_anual = pd.date_range(
     start="1980",
     periods = len(df_anual),    
@@ -69,22 +70,15 @@ serie_index = pd.Series(df_anual['Valores'].values, index = index_anual)
 serie_index.plot()
 
 ### Customizando o gráfico ###
-### Título
-ax.set_title("Série Temporal Anual", color="white", fontsize=14)
-
-### Fundo
+ax.set_title("Série Temporal Anual", color="white", fontsize=14) # Título
 ax.set_facecolor("black")             # fundo da área do gráfico
 ax.figure.set_facecolor("black")      # fundo da figura
-
-### Cor da linha
-ax = serie_index.plot(color="cyan")   
-
-### Eixos
-ax.tick_params(colors="white") # Valores
-ax.xaxis.label.set_color("white") # Eixo x
-ax.yaxis.label.set_color("white") # Eixo y
-for spine in ax.spines.values():
-    spine.set_color("white") # Bordas
+ax = serie_index.plot(color="cyan")   # Cor da linha
+ax.tick_params(colors="white")        # Valores
+ax.xaxis.label.set_color("white")     # Eixo x
+ax.yaxis.label.set_color("white")     # Eixo y
+for spine in ax.spines.values():      # Bordas
+    spine.set_color("white")
 
 plt.show()
 
@@ -112,8 +106,6 @@ plt.show()
 ### Passeio Aleatório ###
 #########################
 
-from random import sample, random
-
 # Série Passeio aleatório 1
 # Criando dados
 dados_alet = sample(range(100), k=41) # k -> valores retirados de 100
@@ -123,32 +115,39 @@ dados_alet
 periodo = list(range(1980, 2021))
 periodo
 
-serie_alet = pd.Series(dados_alet, index = periodo)
-serie_alet
-serie_alet.plot()
+serie_passeio_1 = pd.Series(dados_alet, index = periodo)
+serie_passeio_1
+serie_passeio_1.plot()
 plt.show()
 
 ## Série Passeio aleatório 2
 # Criando dados
-serie2 = list()
-serie2.append(-1 if random() < 0.5 else 1)
+serie_passeio_2 = list()
+serie_passeio_2.append(-1 if random() < 0.5 else 1)
 for i in range(1, 1000):
     movimento = -1 if random() < 0.5 else 1
-    valor = serie2[i-1] + movimento
-    serie2.append(valor)
+    valor = serie_passeio_2[i-1] + movimento
+    serie_passeio_2.append(valor)
 
-serie2 = pd.Series(serie2)
-serie2.plot()
+serie_passeio_2 = pd.Series(serie_passeio_2)
+serie_passeio_2.plot()
 plt.show()
 
 ##############
 ### Testes ###
 ##############
 
-### Testes de Normalidade ###
+### Testes de Normalidade (Shapiro-Wilk) ###
 # - H0: resíduos normalmente distribuídos (p > 0.05)
 # - H1: resíduos não são normalmente distribuídos (p <= 0.05)
-stats.shapiro(serie1)
+teste_1 = stats.shapiro(serie_index)
+print('p-valor: {}'.format(teste_1.pvalue))
+
+teste_2 = stats.shapiro(serie_passeio_1)
+print('p-valor: {}'.format(teste_2.pvalue))
+
+teste_3 = stats.shapiro(serie_passeio_2)
+print('p-valor: {}'.format(teste_3.pvalue))
 
 ### Testes de Estacionaridade ###
 # Teste pp (Philips-Perron)
