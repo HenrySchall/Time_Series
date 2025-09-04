@@ -1,72 +1,110 @@
-########################
-### Install Packages ###
-########################
-
-import subprocess
-import sys
-
-def install_packages(pacotes):
-    for pacote in pacotes:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", pacote])
-
-# List of packages
-packages_list = ["numpy", "pandas", "matplotlib", "scipy", "seaborn","statsmodels", "plotly", "gurobipy",
-"yfinance", "scikit-learn", "pyomo", "panel", "hvplot", "holoviews", "datashader", "param", "colorcet",
-"transformers","einops","accelerate", "bitsandbytes", "torch", "torchvision","torchaudio"]
-
-install_packages(packages_list)
-
-#####################
-### Load Packages ###
-#####################
-
-import pyomo.environ as pyo
-import gurobipy as gp
-import pandas as pd 
-import seaborn as sns
-import plotly.express as px
 import numpy as np
-import panel as pn 
-import seaborn.objects as so
-import matplotlib as mpl
-import colorcet as cc
+import pandas as pd
 import matplotlib.pyplot as plt
-import math
-import datetime
-import param
-import sklearn
-import scipy
-import string
-import random
-import torch
-import os
-from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline, BitsAndBytesConfig
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder, MinMaxScaler
-from sklearn.naive_bayes import GaussianNB as GNB
-from matplotlib.pylab import rcParams
-import statsmodels.tsa.stattools as sm
+import statsmodels.api as sm
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+from matplotlib.pylab import rcParams
 from statsmodels.tsa.seasonal import seasonal_decompose as decompose
+from scipy import stats
 
-######################
-### Série Temporal ###
-######################
-
-# Configuração do padrão de medidas do plot dos gráficos
+# Configuração do padrão de medidas do plot dos gráficos para ficar visivelmente mais agradáveis
 rcParams['figure.figsize'] = 15, 6
 
-# Criando dados aleatórios (Série Anual)
-np.random.seed(10) # definir ponto inicial para gerar mesmos valores aleatórios
-dados = np.random.normal(0,1,31) # (média,desvio padrão,quantidade de valores [1990 a 2020])
-dados
+##################
+### Introdução ###
+##################
 
-# Criando dados aleatórios (Série Mensal)
-# np.random.seed(6)
-# dados = np.random.normal(0,1,72)
-# dados = pd.DataFrame(dados)
-# dados.columns = ['valores']
-# dados
+# Série Anual (1980 a 2020 = 41 anos)
+np.random.seed(10) # definir ponto inicial para sempre gerar mesmos valores aleatórios
+df_anual = np.random.normal(
+    0, # média
+    1, # desvio padrão
+    41) # quantidade de valores
+df_anual.shape
+df_anual
+
+# Série Mensal (1995-01 a 2000-12 = 72 meses)
+#np.random.seed(10) # definir ponto inicial para sempre gerar mesmos valores aleatórios
+#df_mensal = np.random.normal(
+#    0, # média
+#    1, # desvio padrão
+#    72) #quantidade de valores
+#df_mensal.shape
+#df_mensal
+
+# Transformando em Série
+serie_anual = pd.Series(df_anual)
+serie_anual.plot()
+plt.show()
+
+# Transformando em DataFrame
+df_anual = pd.DataFrame(df_anual)
+df_anual.columns = ['Valores']
+df_anual
+
+df_anual.describe()
+
+# count = Número de observações no conjunto de dados
+# mean = Número de observações no conjunto de dados
+# std = O desvio padrão. Mede a dispersão dos dados em relação à média. Quanto maior, mais espalhados os valores estão
+# min = O menor valor do conjunto de dados
+# 25% = O primeiro quartil. 25% dos dados estão abaixo deste valor
+# 50% = A mediana. 50% dos dados estão abaixo deste valor
+# 75% = O terceiro quartil. 75% dos dados estão abaixo deste valor
+# max = O maior valor do conjunto de dados
+
+index_anual = pd.date_range(
+    start="1980",
+    periods = len(df_anual),    
+    freq="AS") #A ou AS
+index_anual
+
+#index_mensal = pd.date_range(
+#    start="1980-01",
+#    end="2015-12",
+#    freq = 'M') M ou MS
+#index_mensal
+
+serie_index = pd.Series(df_anual['Valores'].values, index = index_anual)
+serie_index.plot()
+
+# Customizando o gráfico
+
+### Título
+ax.set_title("Série Temporal Anual", color="white", fontsize=14)
+
+### Fundo
+ax.set_facecolor("black")             # fundo da área do gráfico
+ax.figure.set_facecolor("black")      # fundo da figura
+
+### Cor da linha
+ax = serie_index.plot(color="cyan")   
+
+### Eixos
+ax.tick_params(colors="white") # Valores
+ax.xaxis.label.set_color("white") # Eixo x
+ax.yaxis.label.set_color("white") # Eixo y
+for spine in ax.spines.values():
+    spine.set_color("white") # Bordas
+
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Selecionando o Período 
 # data = np.array('2015-01', dtype = np.datetime64())
