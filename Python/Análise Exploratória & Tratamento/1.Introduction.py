@@ -11,37 +11,38 @@ from statsmodels.tsa.seasonal import seasonal_decompose as decompose
 # Configuração do padrão de medidas do plot dos gráficos para ficar visivelmente mais agradáveis
 rcParams['figure.figsize'] = 15, 6
 
-##################
-### Introdução ###
-##################
+###################
+### Série Anual ###
+###################
 
-# Série Anual (1980 a 2020 = 41 anos)
+# Criando array de dados aleatórios para a Série (Periodo: 1980 a 2020 = 41 anos)
 np.random.seed(10) # definir ponto inicial para sempre gerar mesmos valores aleatórios
-df_anual = np.random.normal(
+df = np.random.normal(
     0, # média
     1, # desvio padrão
     41) # quantidade de valores
-df_anual.shape
-df_anual
+df.shape
+df
 
-# Série Mensal (1995-01 a 2000-12 = 72 meses)
-#np.random.seed(10) # definir ponto inicial para sempre gerar mesmos valores aleatórios
-#df_mensal = np.random.normal(
-#    0, # média
-#    1, # desvio padrão
-#    72) #quantidade de valores
-#df_mensal.shape
-#df_mensal
+# Criando índice temporal
+index = pd.date_range(
+    start="1980",
+    periods = len(df),    
+    freq="AS") #A ou AS
+index
 
-# Transformando em Série
-serie_anual = pd.Series(df_anual)
-serie_anual.plot()
-plt.show()
+# Verificando valores
+len(index)
+len(df)
 
-# Transformando em DataFrame
-df_anual = pd.DataFrame(df_anual)
-df_anual.columns = ['Valores']
-df_anual
+# Criando DataFrame Conjunto
+df_anual = pd.DataFrame({
+    "Anual": index,
+    "Valores": df
+})
+
+# Definindo Ano como índice temporal
+df_anual.set_index("Anual", inplace=True)
 
 df_anual.describe()
 # count = Número de observações no conjunto de dados
@@ -53,33 +54,94 @@ df_anual.describe()
 # 75% = O terceiro quartil. 75% dos dados estão abaixo deste valor
 # max = O maior valor do conjunto de dados
 
-# Índice temporal
-index_anual = pd.date_range(
-    start="1980",
-    periods = len(df_anual),    
-    freq="AS") #A ou AS
-index_anual
+# Plotando a série temporal
+serie_index = pd.Series(df_anual["Valores"].values)
 
-#index_mensal = pd.date_range(
-#    start="1980-01",
-#    end="2015-12",
-#    freq = 'M') M ou MS
-#index_mensal
-
-serie_index = pd.Series(df_anual['Valores'].values, index = index_anual)
-serie_index.plot()
-
-### Customizando o gráfico ###
-ax.set_title("Série Temporal Anual", color="white", fontsize=14) # Título
-ax.set_facecolor("black")             # fundo da área do gráfico
-ax.figure.set_facecolor("black")      # fundo da figura
-ax = serie_index.plot(color="cyan")   # Cor da linha
-ax.tick_params(colors="white")        # Valores
-ax.xaxis.label.set_color("white")     # Eixo x
-ax.yaxis.label.set_color("white")     # Eixo y
-for spine in ax.spines.values():      # Bordas
+# Customizando o gráfico 
+ax = serie_index.plot(color="cyan") # Título
+ax.set_title("Série Temporal Anual", color="white", fontsize=14) # Fundo da área do gráfico
+ax.set_facecolor("black") # Fundo da figura
+ax.figure.set_facecolor("black") # Cor da linha
+ax.tick_params(colors="white") # Valores
+ax.xaxis.label.set_color("white") # Eixo x
+ax.yaxis.label.set_color("white") # Eixo y
+for spine in ax.spines.values(): # Bordas
     spine.set_color("white")
 
+plt.show()
+
+####################
+### Série Mensal ###
+####################
+
+# Período: 1995-01 a 2000-12 = 72 meses)
+np.random.seed(6) # definir ponto inicial para sempre gerar mesmos valores aleatórios
+df_mensal = np.random.normal(
+    0, # média
+    1, # desvio padrão
+    72) # quantidade de valores
+df_mensal.shape
+df_mensal
+
+index_mensal = pd.date_range(
+    start="2015-01",
+    periods=72, 
+    freq="M")
+index_mensal
+
+len(index_mensal)
+len(df_mensal)
+
+df_mensal_concat = pd.DataFrame({
+    "Mensal": index_mensal,
+    "Valores": df_mensal
+})
+
+df_mensal_concat.set_index("Mensal", inplace=True)
+serie_index_mensal = pd.Series(df_mensal_concat["Valores"].values)
+
+ax = serie_index_mensal.plot(color="cyan") # Título
+ax.set_title("Série Temporal Mensal", color="white", fontsize=14) # Fundo da área do gráfico
+ax.set_facecolor("black") # Fundo da figura            
+ax.figure.set_facecolor("black") # Cor da linha     
+ax.tick_params(colors="white") # Valores       
+ax.xaxis.label.set_color("white") # Eixo x    
+ax.yaxis.label.set_color("white") # Eixo y    
+for spine in ax.spines.values(): # Bordas
+    spine.set_color("white")
+
+plt.show()
+
+####################
+### Série Diária ###
+####################
+
+# Período: 2020-01-01 a 2020-12-31 = 366 dias (ano bissexto)
+np.random.seed(12) # definir ponto inicial para sempre gerar mesmos valores aleatórios
+df_diario = np.random.normal(
+    1, # média
+    2, # desvio padrão
+    731) # quantidade de valores
+df_diario.shape
+df_diario
+
+index_diario = pd.date_range(
+    start="2020-01-01",
+    periods=731, 
+    freq="D")
+index_diario
+
+len(index_diario)
+len(df_diario)
+
+df_diario_concat = pd.DataFrame({
+    "Diário": index_diario,
+    "Valores": df_diario
+})
+
+df_diario_concat.set_index("Diário", inplace=True)
+serie_index_diario = pd.Series(df_diario_concat["Valores"].values)
+serie_index_diario.plot()
 plt.show()
 
 ######################
@@ -101,6 +163,14 @@ plt.show()
 ## FACP ###
 plot_pacf(serie, lags=30)
 plt.show()
+
+
+
+
+
+
+
+
 
 #########################
 ### Passeio Aleatório ###
