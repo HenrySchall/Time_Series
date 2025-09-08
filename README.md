@@ -1,6 +1,30 @@
-## Time Series
-### Introduction
-> A Time Series is a set of observations ordered in time or a particular slice of an unknown stochastic process. Mathematically: Y = Tdt + Szt + et.
+# Séries Temporais
+> Uma série temporal é um conjunto de observações ordenadas em ordem cronológica no tempo ou um processo estocástico desconhecido. Matematicamente: Y = Tdt + Szt + et.
+
+* Tendência (Tdt): Mudanças graduais no longo prazo (crescimento populacional).
+* Sazonalidade (Szt): oscilações para cima e para baixo que sempre ocorrem em um determinado período (contas de luz mais altas no inverno).
+* Resíduos (et): mostram os movimentos para cima e para baixo na série após a remoção da tendência ou do efeito sazonal (sequência de variáveis aleatórias).
+
+> As Séries temporais podem ser usadas para fazer previsões futuras, descrever o comportamento serial de um variável, analisar periodicidade, tendências ou até mesmo definir o processo gerador de uma série. Elas podem ser divididas em dois tipos:
+
+- Univariadas = apenas uma variável muda ao longo do tempo
+- Multivariadas = mais de uma variável muda ao longo do tempo
+
+### Conceitos Básicos 
+
+> Processo Estocástico -> é uma coleção de variáveis aleatórias definidas no mesmo espaço de probabilidade (processo que gera uma série de variáveis). A descrição de um processo estocástico é feita por meio de uma distribuição de probabilidade conjunta (o que é muito complexo de fazer), então geralmente o descrevemos por meio das funções:
+- $𝜇(𝑡)=𝐸{𝑍(𝑡)}$ -> Average
+- $𝜎^2(𝑡)=𝑉𝑎𝑟{𝑍(𝑡)}$ -> Variance 
+- $𝛾(𝑡1,𝑡2)=𝐶𝑜𝑣{𝑍(𝑡1),𝑍(𝑡2)}$ -> Autocovariance
+
+![Img1](https://github.com/user-attachments/assets/4f5af5b4-917b-4c5a-97ac-45166549dcbe)
+
+> Estacionariedade -> é quando uma série temporal apresenta todas as suas características estatísticas constantes ao longo do tempo
+
+- Estacionariedade Fraca = quando as propriedades estatísticas são constantes ao longo do tempo, E(x) = U, Var(x) = 𝜎², COV(X,X-n) = k (a covariância entre observações em diferentes pontos no tempo depende do momento específico em que ocorreram). Na literatura, estacionariedade geralmente significa estacionariedade fraca.
+- Estacionariedade Forte = também chamada de estacionariedade estrita, ocorre quando a função de probabilidade conjunta é invariante ao longo do tempo, ou seja, as distribuições individuais são as mesmas para todos os "ts". Portanto, a covariância depende apenas da distância entre as observações e não do momento específico em que ocorreram.
+
+
 
 * Trend (Tdt): Gradual changes in the long term (population growth).
 * Seasonality (Szt): upward and downward oscillations that always occur in a given period (higher electricity bills in winter).
