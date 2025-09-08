@@ -1,12 +1,53 @@
-## Time Series
-### Introduction
+<div id="top">
+
+<!-- HEADER STYLE: CLASSIC -->
+<div align="center">
+
+# Time Series
+
+![Img](https://github.com/user-attachments/assets/751344dd-f870-41c9-a827-6bbd9c8b6925)
+
+<!-- BADGES -->
+<img src="https://img.shields.io/github/license/HenrySchall/Artificial_Intelligence?style=flat&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
+<img src="https://img.shields.io/github/last-commit/HenrySchall/Artificial_Intelligence?style=flat&logo=git&logoColor=white&color=0080ff" alt="last-commit">
+<img src="https://img.shields.io/github/languages/top/HenrySchall/Artificial_Intelligence?style=flat&color=0080ff" alt="repo-top-language">
+<img src="https://img.shields.io/github/languages/count/HenrySchall/Artificial_Intelligence?style=flat&color=0080ff" alt="repo-language-count">
+
+<em>Built with the tools and technologies:</em>
+
+<img src="https://img.shields.io/badge/Markdown-000000.svg?style=flat&logo=Markdown&logoColor=white" alt="Markdown">
+<img src="https://img.shields.io/badge/Python-3776AB.svg?style=flat&logo=Python&logoColor=white" alt="Python">
+
+</div>
+<br>
+
+---
+## Table of Contents
+
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [Testing](#testing)
+- [Features](#features)
+- [Project Structure](#project-structure)
+    - [Project Index](#project-index)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgment](#acknowledgment)
+
+---
+## Overview
+
 > A Time Series is a set of observations ordered in time or a particular slice of an unknown stochastic process. Mathematically: Y = Tdt + Szt + et.
 
 * Trend (Tdt): Gradual changes in the long term (population growth).
 * Seasonality (Szt): upward and downward oscillations that always occur in a given period (higher electricity bills in winter).
 * Residuals (et): shows upward and downward movements in the series after removing the trend or seasonal effect (sequence of random variables).
 
-![plot](https://github.com/user-attachments/assets/6cde76a5-8419-4d3c-b32b-1630c27b36a5)
+<img width="1536" height="917" alt="468406299-a9456813-01d2-47e2-b8d6-14c093f7511b" src="https://github.com/user-attachments/assets/1af67a21-7324-4c72-adaa-0d6d21d03ef0" />
 
 > Time series studies can be used for future predictions, description of serial behavior, and analysis of periodicity, trends, or even the process that generates the series. They are divided into two types:
 
@@ -20,7 +61,7 @@
 - $𝜎^2(𝑡)=𝑉𝑎𝑟{𝑍(𝑡)}$ -> Variance 
 - $𝛾(𝑡1,𝑡2)=𝐶𝑜𝑣{𝑍(𝑡1),𝑍(𝑡2)}$ -> Autocovariance
 
-![estocastico](https://github.com/user-attachments/assets/d1a7faa1-0cad-46f2-bf2c-b369e13209c2)
+![468406309-d3282814-effa-4e4f-9bc7-c62b49645a47](https://github.com/user-attachments/assets/b98c03be-d418-418d-b3d1-e6ba95b22123)
 
 > Stationarity -> is when a time series presents all its statistical characteristics constant over time
 
@@ -29,19 +70,20 @@
 
 > Autocorrelation -> is the correlation of certain previous periods with the current period, that is, the degree of serial dependence. Each period of this type of correlation is called lag and its representation is made by the Autocorrelation Function (ACF) and the Partial Autocorrelation Function (PAF), both of which compare the present value with the past values ​​of the series. The difference between them is that the CAF analyzes both direct and indirect correlation, while the PAF only analyzes direct correlation. So we can say that the CAF sees the direct correlation of the month of January in March and also the indirect correlation that the month of January had in February, which also had in March, while the PAF only the correlation of January in March. This analysis is done because it is the essential assumption for creating efficient forecasts of a series.
 
-![FAC](https://github.com/user-attachments/assets/4623a946-6427-4bc2-aadc-d8219df93db9)
+<img width="1536" height="917" alt="468406317-e6e5ecc6-65fd-4893-8c8a-d095db0fb407" src="https://github.com/user-attachments/assets/07b858ba-d17b-4959-9176-b77fb7df7f6e" />
 
-![FACP](https://github.com/user-attachments/assets/9d577631-0da2-4101-b695-cfa4f35d2fc5)
+<img width="1536" height="917" alt="468406320-f41b5ff9-f11c-4f8a-90b3-ecc26353ac57" src="https://github.com/user-attachments/assets/789814d3-b848-4bb2-9a6b-234db9094b15" />
+
 
 > White Noise -> is when the error of a time series follows a normal distribution, that is, a purely random process.
 - E(Xt)=0
 - Var(Xt)=𝜎2
 
-![Captura de tela 2025-01-30 132421](https://github.com/user-attachments/assets/0fbabff6-f692-48ad-bc84-bea27f7f30ae)
+<img width="1952" height="1392" alt="468406324-8fd50fde-b4ed-4256-b31e-8abce4ab85cd" src="https://github.com/user-attachments/assets/1164f58f-1d9b-4331-a64f-bdafcfb1bd0d" />
 
 > Random Walk -> is the sum of small stochastic fluctuations (stochastic trend). Mathematically: 𝑍𝑡=𝑍(𝑡−1)+et
 
-![Captura de tela 2025-01-30 132324](https://github.com/user-attachments/assets/bf7ce3a1-560b-45ad-9d1c-459cea90fe26)
+<img width="2040" height="1408" alt="468406340-32b2b0d1-8911-424e-965a-b11569b2ff1d" src="https://github.com/user-attachments/assets/5cfc0365-5565-4ac9-8e11-17acc9571449" />
 
 > Transformation and Smoothing -> These are techniques that seek to make the series as close as possible to a normal distribution. Transforming the value of the variables or smoothing the trend and/or seasonality of the series. Among all the existing techniques we can mention:
 
@@ -53,7 +95,7 @@
 
 > Differentiation -> Differentiation seeks to transform a non-stationary series into a stationary one, by means of the difference of two consecutive periods
 
-![Sem Título-1](https://github.com/user-attachments/assets/390abc00-d4aa-41bf-be96-6ec3eeaf7684)
+![468406348-c83a4ec2-4faa-4c3d-b3d8-a555de35072d](https://github.com/user-attachments/assets/97b8fa4a-e4d3-4e7f-b707-c501d7422552)
 
 #### Univariate time series models:
 Linear models:
@@ -296,10 +338,74 @@ relação não-linear e negativa de ordem 𝜏=−0,7692.
 
 *Observação: Pode-se fazer uma comparação entre coeficiente de correlação de Spearman e o coeficiente de correlação por postos de Kendall. Os valores numéricos não são iguais, quando calculados para os mesmos pares de postos, e não são comparáveis numericamente. Contudo, pelo fato de utilizarem a mesma quantidade de informação contida nos dados, ambos têm o mesmo poder de detectar a existência de associação na população, e rejeitarão a hipótese nula para um mesmo nível de significância.*
 
+### Bibliographic References:
+- Introduction to Time Series, by Gustavo Rocha Silva
+- Practical Time Series Analysis: Prediction with Statistics and Machine Learning, by Aileen Nielsen
+- Elementary Statistics: Picturing the World Hardcover, by Ron Larson (Auteur), Betsy Farber
+- Time Series Econometrics, by Rodrigo de Losso da Silveira Bueno
 
 
 
+ Economia e Finanças
 
+    Previsão de inflação, PIB, desemprego
 
+    Análise de mercado financeiro: preços de ações, taxas de juros, câmbio
 
+    Gestão de portfólio com modelos de volatilidade (e.g., GARCH)
 
+    Modelagem macroeconômica: VAR, SVAR, BVAR
+
+🏢 Negócios e Marketing
+
+    Previsão de demanda e vendas
+
+    Gestão de estoque (evitar excesso ou falta de produto)
+
+    Modelos de pricing dinâmico
+
+    Análise de churn (saída de clientes) com séries de comportamento
+
+    Campanhas sazonais: identificar ciclos de compra
+
+🛒 E-commerce e Varejo
+
+    Previsão de tráfego no site
+
+    Recomendações com base no histórico de comportamento
+
+    Análise de campanhas promocionais temporais
+
+    Análise de séries clickstream (navegação dos usuários)
+
+🏭 Indústria e Manufatura
+
+    Manutenção preditiva (machine learning com séries de sensores)
+
+    Controle de qualidade no tempo
+
+    Otimização da produção com base em previsões de demanda
+
+🚛 Logística e Cadeia de Suprimentos
+
+    Previsão de entrega e prazos
+
+    Roteirização dinâmica com dados históricos de tráfego
+
+    Gestão de estoque baseada em séries temporais de consumo
+
+🏥 Saúde
+
+    Monitoramento de sinais vitais (e.g., batimentos, pressão)
+
+    Previsão de surtos epidemiológicos (como COVID-19, dengue)
+
+    Modelagem de ocupação hospitalar
+
+🌦️ Clima, Energia e Sustentabilidade
+
+    Previsão do tempo e eventos extremos
+
+    Previsão de carga elétrica (modelos usados por concessionárias)
+
+    Modelagem de geração solar e eólica
