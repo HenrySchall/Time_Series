@@ -1,10 +1,65 @@
-## Time Series
-### Introduction
-> A Time Series is a set of observations ordered in time or a particular slice of an unknown stochastic process. Mathematically: Y = Tdt + Szt + et.
+# Séries Temporais
+> Uma série temporal é um conjunto de observações ordenadas em ordem cronológica no tempo ou um processo estocástico desconhecido. Matematicamente: Y = Tdt + Szt + et.
 
-* Trend (Tdt): Gradual changes in the long term (population growth).
-* Seasonality (Szt): upward and downward oscillations that always occur in a given period (higher electricity bills in winter).
-* Residuals (et): shows upward and downward movements in the series after removing the trend or seasonal effect (sequence of random variables).
+covariacia x corrrelação
+
+* Tendência (Tdt): Mudanças graduais no longo prazo (crescimento populacional).
+* Sazonalidade (Szt): oscilações para cima e para baixo que sempre ocorrem em um determinado período (contas de luz mais altas no inverno).
+* Resíduos (et): mostram os movimentos para cima e para baixo na série após a remoção da tendência ou do efeito sazonal (sequência de variáveis aleatórias).
+
+(IMAGEM)
+
+> As Séries temporais podem ser usadas para fazer previsões futuras, descrever o comportamento serial de um variável, analisar periodicidade, tendências ou até mesmo definir o processo gerador de uma série. Elas podem ser divididas em dois tipos:-
+- Variáveis
+- Univariadas = apenas uma variável muda ao longo do tempo
+- Multivariadas = mais de uma variável muda ao longo do tempo
+
+- Tempo
+- Unidimensuiioaonsi somente a vria´vel tempom envolvio
+- Multidimensioanis -> outras vria´vesi asspociadas ao tempo
+
+### Conceitos Básicos 
+> Processo Estocástico -> É uma coleção de variáveis aleatórias definidas no mesmo espaço de probabilidade (processo que gera uma série de variáveis). A descrição de um processo estocástico é feita por meio de uma distribuição de probabilidade conjunta (o que é muito complexo de fazer), então geralmente o descrevemos por meio das funções:
+- $𝜇(𝑡)=𝐸{𝑍(𝑡)}$ -> Média
+- $𝜎^2(𝑡)=𝑉𝑎𝑟{𝑍(𝑡)}$ -> Variância
+- $𝛾(𝑡1,𝑡2)=𝐶𝑜𝑣{𝑍(𝑡1),𝑍(𝑡2)}$ -> Autocovariância
+
+![Img1](https://github.com/user-attachments/assets/4f5af5b4-917b-4c5a-97ac-45166549dcbe)
+
+> Ruído Branco -> é quando o erro de uma série temporal segue uma distribuição normal, ou seja, um processo puramente aleatório.
+- E(Xt)=0
+- Var(Xt)=𝜎2
+
+> Passeio Aleatória (Random Walk) -> é a soma de pequenas flutuações estocásticas (tendência estocástica). Matematicamente: 𝑍𝑡 = 𝑍(𝑡−1) + et
+
+(IMAGEM)
+
+> Autocorrelação -> é a correlação de determinados períodos anteriores com o período atual, ou seja, o grau de dependência serial. Cada período desse tipo de correlação é chamado de defasagem e sua representação é feita pela Função de Autocorrelação (ACF) e pela Função de Autocorrelação Parcial (PAF), ambas comparando o valor presente com os valores passados da série. A diferença entre elas é que a CAF analisa tanto a correlação direta quanto a indireta, enquanto a PAF analisa apenas a correlação direta. Então, podemos dizer que a CAF vê a correlação direta do mês de janeiro com o de março e também a correlação indireta que o mês de janeiro teve com o de fevereiro, que também teve com o de março, enquanto a PAF apenas a correlação de janeiro com o de março. Essa análise é feita por ser a premissa essencial para a criação de previsões eficientes de uma série.
+
+> Estacionariedade -> É quando uma série temporal apresenta todas as suas características estatísticas constantes ao longo do tempo, ou seja, não mudam de comportamento (inclinação e mudança de nível)
+
+(IMAGEM)
+ 
+ Tipos 
+ - Estacionariedade Forte = também chamada de estacionariedade estrita, ocorre quando as distribuições unidimensionais são invariantes ao longo do tempo, ou seja, as distribuições individuais são as mesmas para todos os "ts". Portanto, a covariância depende apenas da distância entre as observações e não do momento específico em que ocorreram.
+ - Estacionariedade Fraca = É quando as propriedades estatísticas são estáveis apenas na Média E(x) = U, Variância Var(x) = 𝜎² e na Covariância COV(X,X-n) = k, ou seja, estabilidade de segunda ordem. Na prática estacionariedade geralmente significa estacionariedade fraca porque muitos métodos dependem apenas de momentos de ordem 1 e 2.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ![plot](https://github.com/user-attachments/assets/6cde76a5-8419-4d3c-b32b-1630c27b36a5)
 
