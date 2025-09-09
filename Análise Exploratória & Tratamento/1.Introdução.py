@@ -112,6 +112,38 @@ for spine in ax.spines.values(): # Bordas
 
 plt.show()
 
+########################
+### Série Trimestral ###
+########################
+
+# Período: 2020-01-01 a 2020-12-31 = 366 dias (ano bissexto)
+np.random.seed(29) # definir ponto inicial para sempre gerar mesmos valores aleatórios
+df_trimestral = np.random.normal(
+    0, # média
+    1, # desvio padrão
+    164) # quantidade de valores
+df_trimestral.shape
+df_trimestral
+
+index_trimestral = pd.date_range(
+    start="1980-01",
+    periods=731, 
+    freq="3M")
+index_trimestral
+
+len(index_trimestral)
+len(df_trimestral)
+
+df_trimestral_concat = pd.DataFrame({
+    "Trimestral": index_trimestral,
+    "Valores": df_trimestral
+})
+
+df_trimestral_concat.set_index("Trimestral", inplace=True)
+serie_index_trimestral = pd.Series(df_trimestral_concat["Valores"].values)
+serie_index_trimestral.plot()
+plt.show()
+
 ####################
 ### Série Diária ###
 ####################
