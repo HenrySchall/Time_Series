@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import statsmodels.api as sm
 import scipy.stats as stats
+import statsmodels.tsa.stattools
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from matplotlib.pylab import rcParams
 from random import sample, random
@@ -234,6 +235,16 @@ pp_test_output
 # - H1 = não é estacionária: teste estatístico >= valor crítico
 kpss_test = sm.kpss(serie1)
 
+kpss = statsmodels.tsa.stattools.kpss(serie1)
+print('Estatítica do teste: {:.4f}'.format(kpss[0]))
+print('p_valor: {:.4f}'.format(kpss[1]))
+print('número de lags: {}'.format(kpss[2]))
+print('Valores Críticos:')
+for chave, valor in kpss[3].items():
+   print('{}: {:.4f}'.format(chave, valor))
+
+
+
 kpss_test_output = {'Estatítica do teste': kpss_test[0], 'p-value': kpss_test[1], 'Número de lags': kpss_test[2], 'Valores Críticos': kpss_test[3]}
 kpss_test_output
 
@@ -252,10 +263,15 @@ ljung_box_test = sm.stats.acorr_ljungbox(serie1, lags=[10], return_df=True)
 ljung_box_test
 
 
+#**AirPassengers: dados clássicos da companhia aérea Box & Jenkins. Totais mensais de passageiros de companhias aéreas internacionais, 1949 a 1960.**
 
+serie2 = pd.read_csv('/content/drive/MyDrive/Cursos_Udemy/series_temporais_PYTHON/AirPassengers.csv')
 
+serie2 = pd.Series(serie2['#Passengers'].values, index = serie2['Month'])
+serie2
 
-
+serie2.plot()
+plt.show()
 
 
 
